@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meeting Select</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/video.css' %}"/>
+    </head>
+<body>
+    <div id="back-image">
+        <img src="{% static 'images/backimage.jpg' %}" class="actual-image">
+    </div>
+    <div class="notification"></div>
+    <div class="realbacks">
+        <!-- <div style="position:fixed;top:0;left:0;right:0;height: 60px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+            <div style="margin-top: 17px;margin-bottom: 6px;font-size: 30px;font-family: roboto, arial;font-weight: 600;color: white;">
+                87yue4hwjksdo-iruehgr
+            </div>
+            <p3 style="margin-bottom: 6px;font-family: arial;font-weight: 200;color: white;opacity: 0.87">203 Members</p3>
+        </div> -->
+        <div style="display:flex;flex-direction: column;align-items: center;">
+            <div style="flex:1;width:100%;" id="video-container">
+                <div class="bad-vido">
+                    <div class="act-vid"><video style="height: 100%;max-width: 930px;max-height:280px" id="local-video" autoplay playsinline>
+                    </video></div>
+    
+                </div>
+            </div>
+            
+            <div class="operators">
+                <div class="cmd-items" id="btn-toggle-audio"><img src="{% static 'images/mic/on.png' %}" style="width: 28px;"></div>
+                <div class="cmd-items" id="btn-toggle-video" style="padding:0px 7px;"><img src="{% static 'images/camera/on.png'  %}" style="width: 35px;"></div>
+                <div class="cmd-items"><img src="{% static 'images/raise-hands.png' %}" style="width: 28px;"></div>
+                <div class="cmd-items mem">
+                    <div class="abt-members">
+                        <div style="height: 60px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                            <div style="margin-top: 3px;margin-bottom: 2px;font-size: 14px;font-family: roboto, arial;font-weight: 600;color: black;">
+                                87yue4hwjksdo-iruehgr
+                            </div>
+                            <p9 style="margin-bottom: 4px;font-family: arial;font-size: 10px;font-weight: 200;color: black;opacity: 0.87">203 Members</p9>
+                        </div>
+                        <div style="flex:1;width: 100%;overflow-y: scroll;">
+                            <div style="font-family: roboto; font-size: 16px; color: black;" id="message-list">
+
+                            </div>
+                            <!-- <p style="font-family: roboto; font-size: 16px; color: black;">Hey Guys - <span style="font-size: 13px; opacity: 0.89;">James Carter</span></span></p> -->
+
+                        </div>
+                    </div>
+                    <img src="{% static 'images/members.png' %}" style="width: 28px;" class="mem">
+                </div>
+                <div class="cmd-items setr" style="background-color: red;"><img src="{% static 'images/call.png' %}" style="width: 40px;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="{% static 'js/zoom.js' %}"></script>
+</body>
+</html>
