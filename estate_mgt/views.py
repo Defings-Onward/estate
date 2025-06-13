@@ -24,10 +24,12 @@ def sign_up(request):
             user.first_name = first_name
             user.last_name = last_name
             user.password = password
+            group, created = Group.objects.get_or_create(name='agent')
+            user.groups.add(group)
             user.save()
 
             
-
+            
             login(request, user)
             print("signed in")
             return redirect('/')
