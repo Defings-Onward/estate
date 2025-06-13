@@ -30,7 +30,7 @@ def sign_up(request):
 
             login(request, user)
             print("signed in")
-            return redirect('/estate')
+            return redirect('/')
         else:
             message = "Your Passwords don't match"
             print(message)
@@ -49,7 +49,6 @@ def home(request):
     service = services.objects.all()
     context = {
         'properties': properties,
-        'property1': properties[0],
         'notification': Notification.objects.filter(recipient=request.user.id),
         'service': service
     }
@@ -156,7 +155,7 @@ def create_property(request):
 
         
         print("Property Created!")
-        return redirect('/estate/manage-property')
+        return redirect('/manage-property')
     else:
         message = "Your form was'nt submitted properly"
         print(message)    

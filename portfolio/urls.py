@@ -21,7 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('meet/', include('video.urls')),
     path('', include('django.contrib.auth.urls')),
-    path('estate/', include('estate_mgt.urls')),
-    path('medilab/', include('medilab.urls'))
+    path('', include('estate_mgt.urls')),
 
 ]

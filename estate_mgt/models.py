@@ -29,6 +29,7 @@ class services(models.Model):
     body = models.TextField()
     image = models.TextField()
     name = models.TextField()
+    dis_body = models.TextField(default="A Header")
 
 class Notification(models.Model):
     body = models.TextField()

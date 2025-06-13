@@ -26,8 +26,14 @@ SECRET_KEY = 'django-insecure-wq0=nznqo4vgj=)!%&59v920!bf3-godf(_b2k6$vbi3cpep(1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# Application definition
+CSRF_TRUSTED_ORIGINS = [
+    "https://*",
+]
 
 # Application definition
 
@@ -39,10 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'video',
     'channels',
     'estate_mgt',
-    'medilab'
 ]
 
 MIDDLEWARE = [
@@ -53,8 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'portfolio.urls'
 
 TEMPLATES = [
@@ -82,15 +87,14 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'estate',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'ajayiobanijesu_2006',
-        'PORT': '5432',
-        #'HOST': 'django-project.c7sgci0uersh.eu-north-1.rds.amazonaws.com'
-
-
+        'PASSWORD': 'nwvlHaagcKoONJBPfOQTgOpHgmpBWsSZ',
+        'HOST': 'interchange.proxy.rlwy.net',
+        'PORT': '47055',
     }
 }
+
 
 
 # Password validation
@@ -134,7 +138,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 ASGI_APPLICATION = 'portfolio.asgi.application'
 
@@ -144,7 +148,7 @@ CHANNEL_LAYERS = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/estate/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')

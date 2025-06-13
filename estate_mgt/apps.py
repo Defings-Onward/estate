@@ -12,7 +12,7 @@ class EstateMgtConfig(AppConfig):
         def add_to_default_group(sender, **kwargs):
             user = kwargs["instance"]
             if kwargs['created']:
-                group, ok = Group.objects.get_or_create(name="buyer")
+                group, ok = Group.objects.get_or_create(name="agent")
                 group.user_set.add(user)
 
         post_save.connect(add_to_default_group,
